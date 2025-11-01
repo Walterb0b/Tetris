@@ -156,7 +156,7 @@ public class Mino {
                 case 4: getDirection1();break;
             }
             KeyHandler.upPressed = false;
-            GamePanel.se.play(1, false);
+            GamePanel.se.play(3, false);
         }
 
         checkMovementCollision();
@@ -193,6 +193,9 @@ public class Mino {
             KeyHandler.rightPressed = false;
         }
         if (bottomCollision) {
+            if(!deactivating){
+                GamePanel.se.play(4, false);
+            }
             deactivating = true;
         } else {
             autoDropCounter++; // the counter increases every frame
