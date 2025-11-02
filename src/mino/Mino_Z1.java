@@ -10,18 +10,23 @@ public class Mino_Z1 extends Mino{
 
     @Override
     public void setXY(int x, int y) {
+        this.anchorX = x;
+        this.anchorY = y;
+
         //   o
         // o o
         // o
 
-        b[0].x = x;
-        b[0].y = y;
-        b[1].x = b[0].x;
-        b[1].y = b[0].y - Block.SIZE;
-        b[2].x = b[0].x - Block.SIZE;
-        b[2].y = b[0].y;
-        b[3].x = b[0].x - Block.SIZE;
-        b[3].y = b[0].y + Block.SIZE;
+        b[0].x = anchorX;                b[0].y = anchorY;
+        b[1].x = anchorX;                b[1].y = anchorY - Block.SIZE;
+        b[2].x = anchorX - Block.SIZE;   b[2].y = anchorY;
+        b[3].x = anchorX - Block.SIZE;   b[3].y = anchorY + Block.SIZE;
+
+        for(int i = 0; i < 4; i++) {
+            tempB[i].x = b[i].x;
+            tempB[i].y = b[i].y;
+            tempB[i].c = b[i].c;
+        }
     }
 
     @Override
@@ -30,14 +35,10 @@ public class Mino_Z1 extends Mino{
         // o o
         // o
 
-        tempB[0].x = b[0].x;
-        tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x;
-        tempB[1].y = b[0].y - Block.SIZE;
-        tempB[2].x = b[0].x - Block.SIZE;
-        tempB[2].y = b[0].y;
-        tempB[3].x = b[0].x - Block.SIZE;
-        tempB[3].y = b[0].y + Block.SIZE;
+        tempB[0].x = anchorX;                tempB[0].y = anchorY;
+        tempB[1].x = anchorX;                tempB[1].y = anchorY - Block.SIZE;
+        tempB[2].x = anchorX - Block.SIZE;   tempB[2].y = anchorY;
+        tempB[3].x = anchorX - Block.SIZE;   tempB[3].y = anchorY + Block.SIZE;
 
         updateXY(1);
     }
@@ -47,14 +48,10 @@ public class Mino_Z1 extends Mino{
         // o o
         //   o o
         //
-        tempB[0].x = b[0].x;
-        tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x + Block.SIZE;
-        tempB[1].y = b[0].y;
-        tempB[2].x = b[0].x;
-        tempB[2].y = b[0].y - Block.SIZE;
-        tempB[3].x = b[0].x - Block.SIZE;
-        tempB[3].y = b[0].y - Block.SIZE;
+        tempB[0].x = anchorX;                tempB[0].y = anchorY;
+        tempB[1].x = anchorX + Block.SIZE;   tempB[1].y = anchorY;
+        tempB[2].x = anchorX;                tempB[2].y = anchorY - Block.SIZE;
+        tempB[3].x = anchorX - Block.SIZE;   tempB[3].y = anchorY - Block.SIZE;
 
         updateXY(2);
     }
