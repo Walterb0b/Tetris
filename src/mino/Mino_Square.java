@@ -10,6 +10,9 @@ public class Mino_Square extends Mino{
 
     @Override
     public void setXY(int x, int y) {
+
+        this.anchorX = x;
+        this.anchorY = y;
         //o o
         //o o
 
@@ -21,6 +24,12 @@ public class Mino_Square extends Mino{
         b[2].y = b[0].y;
         b[3].x = b[0].x + Block.SIZE;
         b[3].y = b[0].y + Block.SIZE;
+
+        for(int i = 0; i < 4; i++) {
+            tempB[i].x = b[i].x;
+            tempB[i].y = b[i].y;
+            tempB[i].c = b[i].c;
+        }
     }
     public void getDirection1(){}
     public void getDirection2(){}
